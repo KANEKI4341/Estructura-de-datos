@@ -1,39 +1,31 @@
-import java.util.Scanner;
+///Ejercicio 8 — Historial de mensajes
+///Un chat guarda el último mensaje enviado. Se usan dos variables String:
+
+///ultimoMensaje = "Hola"
+///copiaTexto = ultimoMensaje
+///Luego copiaTexto se cambia a "¿Cómo estás?"
+///Muestra ambas variables y explica en un comentario por qué ultimoMensaje no cambió (inmutabilidad de String).
 
 public class Ejer8 {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        String ultimoMensaje = "Hola";
 
-        double[] precios = new double[5];
-        double suma = 0;
-        double mayor = 0;
+        String copiaTexto = ultimoMensaje;
 
-        // Pedir los 5 precios
-        for (int i = 0; i < 5; i++) {
-            System.out.print("Ingrese el precio del producto " + (i + 1) + ": ");
-            precios[i] = sc.nextDouble();
-        }
+        copiaTexto = "¿como estas?";
 
-        // Calcular suma y precio mayor
-        for (int i = 0; i < 5; i++) {
-            suma = suma + precios[i];
+        System.out.println("ultimoMensaje " + ultimoMensaje);
+        System.out.println("copiaTexto " + copiaTexto);
 
-            if (precios[i] > mayor) {
-                mayor = precios[i];
-            }
-        }
-
-        System.out.println("La suma total es: " + suma);
-        System.out.println("El precio más alto es: " + mayor);
-
-        // Descuento
-        if (suma > 20000) {
-            System.out.println("Tienes un descuento de 2000!");
-            suma = suma - 2000;
-        }
-
-        System.out.println("Total a pagar: " + suma);
+        ///EXPLICACIÓN:
+        ///Los String en Java son inmutables.
+        ///Cuando hacemos:
+        ///copiaTexto = "¿Cómo estás?";
+        ///no estamos modificando el texto original,
+        ///sino que se crea un nuevo objeto String en memoria.
+         
+        ///Por eso ultimoMensaje sigue siendo "Hola"
     }
 }
     

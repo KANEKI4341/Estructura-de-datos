@@ -14,22 +14,23 @@ public class Ejer7 {
         int [] stockAlmacen = { 1,2,3,4,5};
         int [] stockReportes = stockAlmacen;
 
-        System.out.println(stockAlmacen);
-
         for (int i = 0; i < stockAlmacen.length; i++) {
-                System.out.println("Producto " + i + ": " + stockAlmacen[i] );
+                System.out.println("Producto stockAlmacen " + i + ": " + stockAlmacen[i] );
         }
 
         stockReportes[1] -= 5;
 
         for (int i = 0; i < stockAlmacen.length; i++) {
-                System.out.println("Producto " + i + ": " + stockAlmacen[i] );
+                System.out.println("Producto stockReporte " + i + ": " + stockAlmacen[i] );
         }
 
-        System.out.println(stockReportes);
-
-
+        ///EXPLICACIÓN:
+        ///Los arreglos en Java se pasan por referencia.
+        ///Cuando hacemos:
+        ///stockReportes = stockAlmacen;
+        ///ambas variables apuntan al mismo espacio en memoria.
+        ///Por eso al modificar stockReportes,
+        ///también cambia stockAlmacen.
 
     }
-    
 }
