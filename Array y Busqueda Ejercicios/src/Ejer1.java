@@ -10,7 +10,12 @@ public class Ejer1 {
 
     public static void main(String[] args) {
         
-        int [] codigo = {346343, 435252, 276964, 756432, 770123, 426474, 573044};
+        int [] codigo = {
+            346343, 435252, 276964, 
+            756432, 770123, 426474, 
+            234554, 345275, 763678,
+            236463, 745765, 657688
+        };
         int codigoBarras = 770123;
 
          int posicion = -1; 
