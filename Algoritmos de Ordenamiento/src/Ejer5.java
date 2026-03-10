@@ -32,47 +32,67 @@ public class Ejer5 {
         int[] seleccion = Arrays.copyOf(numeros, numeros.length);
         int[] insercion = Arrays.copyOf(numeros, numeros.length);
 
-        ordenarSeleccion(seleccion);
-        ordenarInsercion(insercion);
+        int swapsSeleccion = ordenarSeleccion(seleccion);
+        int movimientosInsercion = ordenarInsercion(insercion);
 
         System.out.println("Arreglo original: " + Arrays.toString(numeros));
         System.out.println("Selection Sort: " + Arrays.toString(seleccion));
         System.out.println("Insertion Sort: " + Arrays.toString(insercion));
 
+        System.out.println("Intercambios en Selection Sort: " + swapsSeleccion);
+        System.out.println("Movimientos en Insertion Sort: " + movimientosInsercion);
+
         analista.close();
     }
 
-    public static void ordenarSeleccion(int[] arr) {
+    public static int ordenarSeleccion(int[] arr) {
+
+        int swaps = 0;
         int n = arr.length;
+
         for (int i = 0; i < n - 1; i++) {
+
             int indiceMinimo = i;
+
             for (int j = i + 1; j < n; j++) {
                 if (arr[j] < arr[indiceMinimo]) {
                     indiceMinimo = j;
                 }
             }
 
-            int temp = arr[indiceMinimo];
-            arr[indiceMinimo] = arr[i];
-            arr[i] = temp;
+            if (indiceMinimo != i) {
+                int temp = arr[indiceMinimo];
+                arr[indiceMinimo] = arr[i];
+                arr[i] = temp;
+                swaps++;
+            }
         }
+
+        return swaps;
     }
 
-    public static void ordenarInsercion(int[] arr) {
+    public static int ordenarInsercion(int[] arr) {
+
+        int movimientos = 0;
         int n = arr.length;
-        for (int i = 1; i < n; ++i) {
+
+        for (int i = 1; i < n; i++) {
+
             int key = arr[i];
             int j = i - 1;
 
             while (j >= 0 && arr[j] > key) {
                 arr[j + 1] = arr[j];
                 j = j - 1;
+                movimientos++;
             }
 
             arr[j + 1] = key;
         }
+
+        return movimientos;
     }
-    //El método más eficiente generalmente es Insertion Sort, porque reduce movimientos 
-    //cuando los datos ya están casi ordenados, mientras que Selection Sort siempre realiza 
-    //el mismo número de comparaciones sin importar el orden de los datos.
 }
+//El método más eficiente generalmente es Insertion Sort, porque reduce movimientos 
+//cuando los datos ya están casi ordenados, mientras que Selection Sort siempre realiza 
+//el mismo número de comparaciones sin importar el orden de los datos.
