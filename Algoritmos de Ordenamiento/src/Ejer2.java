@@ -28,12 +28,7 @@ public class Ejer2 {
         for (int i = 0; i < ordenado.length; i++) {
             System.out.println("Ingrese el codigo del libro " + ( i + 1) + ":" );
             ordenado [i] = biblioteca.nextInt();
-        }
-        ordenar(ordenado);
-        System.out.println("Libro de menor a mayor: ");
-
-        for (int i : ordenado) {
-            System.out.println(i);
+            ordenar(ordenado, i + 1);
         }
 
         System.out.println(" ==== RESULTADO ==== ");
@@ -41,9 +36,9 @@ public class Ejer2 {
 
         biblioteca.close();
     }
-    public static void ordenar(int[] ordenar) {
-        int n = ordenar.length;
-        for (int i = 1; i < n; ++i) {
+    public static void ordenar(int[] ordenar, int tamaño) {
+       
+        for (int i = 1; i < tamaño; ++i) {
             int key = ordenar[i];
             int j = i - 1;
         while (j >= 0 && ordenar[j] > key) {
@@ -51,8 +46,8 @@ public class Ejer2 {
             j = j - 1;
         }
         ordenar[j + 1] = key;
-        System.out.println(Arrays.toString(ordenar));
         }
+        System.out.println(Arrays.toString(ordenar));
     }
 }
 
