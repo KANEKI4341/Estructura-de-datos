@@ -34,6 +34,25 @@ public class App5 {
             switch (opcion) {
 
                 case 1:
+                    System.out.println("\n--- Agregar canción a continuación ---");
+
+                    System.out.print("Título: ");
+                    String titulo1 = sc.nextLine();
+
+                    System.out.print("Artista: ");
+                    String artista1 = sc.nextLine();
+
+                    System.out.print("Duración (segundos): ");
+                    int duracion1 = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Género: ");
+                    String genero1 = sc.nextLine();
+
+                    Cancion nueva1 = new Cancion(titulo, artista, duracion, genero);
+                    lista.agregarAContinuacion(nueva1);
+                    break;
+
                 case 2:
                     System.out.print("Título: ");
                     String titulo = sc.nextLine();
@@ -48,7 +67,7 @@ public class App5 {
                     System.out.print("Género: ");
                     String genero = sc.nextLine();
 
-                    Cancion nueva = new Cancion(titulo, artista, duracion, genero);
+                    Cancion nueva = new Cancion(titulo1, artista1, duracion1, genero1);
 
                     if (opcion == 1) {
                         lista.agregarAContinuacion(nueva);
