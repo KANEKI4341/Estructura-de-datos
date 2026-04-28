@@ -12,8 +12,83 @@
 //agrega 5 comandos, navega 3 veces hacia arriba, elimina el comando actual, navega una vez 
 //hacia abajo y muestra el historial completo con el cursor marcado.
 
+import java.util.Scanner;
+
 public class App2 {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        Scanner sc = new Scanner(System.in);
+        int opcion;
+        Historial historial = new Historial();
+
+        do {
+            System.out.println("\n==============================================");
+            System.out.println(" Terminal  — Menú Principal");
+            System.out.println("==============================================");
+            System.out.println("  [1] Agregar comando");
+            System.out.println("  [2] Navegar hacia arriba");
+            System.out.println("  [3] Navegar hacia abajo");
+            System.out.println("  [4] Eliminar comando actual");
+            System.out.println("  [5] Mostrar cursor actual");
+            System.out.println("  [6] Mostrar historial completo");
+            System.out.println();
+            System.out.println("  [0] Salir");
+            System.out.println("==============================================");
+            System.out.print("Elige una opción: ");
+
+            opcion = sc.nextInt();
+            sc.nextLine();
+            System.out.println();
+
+            switch (opcion) {
+
+                case 1:
+                    System.out.print("Ingrese el comando: ");
+                    String t = sc.nextLine();
+
+                    System.out.print("Ingrese el directorio: ");
+                    String d = sc.nextLine();
+
+                    System.out.print("¿Fue exitoso? (true/false): ");
+                    boolean exito = sc.nextBoolean();
+                    sc.nextLine();
+
+                    historial.agregar(t, exito, d);
+                    System.out.println("Comando agregado.");
+                    break;
+
+                case 2:
+                    historial.arriba();
+                    historial.mostrarCursor();
+                    break;
+
+                case 3:
+                    historial.abajo();
+                    historial.mostrarCursor();
+                    break;
+
+                case 4:
+                    historial.eliminarActual();
+                    System.out.println("Comando eliminado.");
+                    break;
+
+                case 5:
+                    historial.mostrarCursor();
+                    break;
+
+                case 6:
+                    historial.mostrarHistorial();
+                    break;
+
+                case 0:
+                    System.out.println("¡Saliendo del módulo de Listas Dobles Circulares!");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida.");
+            }
+
+        } while (opcion != 0);
+
+        sc.close();
     }
 }
